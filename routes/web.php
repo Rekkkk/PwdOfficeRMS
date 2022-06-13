@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\AuthenticationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -13,10 +14,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
+Route::get('/homepage', function () {
     return view('landingpage/landingpages/home');
 })->name('home');
 
-Route::get('/login', function () {
-    return view('landingpage/landingpages/login');
-})->name('login');
+Route::get('/loginpage', [AuthenticationController::class, 'loginPage'])->name('login.page');
+Route::get('/login', [AuthenticationController::class, 'login'])->name('login');
