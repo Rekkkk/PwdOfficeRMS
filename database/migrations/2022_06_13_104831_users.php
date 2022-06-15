@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->bigInteger('id');
+            $table->id('id');
             $table->string('first_name');
             $table->string('last_name');
             $table->string('middle_name');
@@ -24,7 +24,7 @@ return new class extends Migration
         });
     }
     /**
-     * Reverse the migrations.
+     * Reverse the migrations.  
      *
      * @return void
      */

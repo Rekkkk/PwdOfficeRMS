@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
+use App\Http\Controllers\TryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,4 +23,4 @@ Route::get('/test', function () {
 })->name('test');
 
 Route::get('/loginpage', [LoginController::class, 'loginPage'])->name('login.page');
-Route::get('/login', [LoginController::class, 'login'])->name('login');
+Route::post('/login', [LoginController::class, 'login'])->name('login');
