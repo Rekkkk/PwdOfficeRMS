@@ -8,7 +8,7 @@
     <title>Document</title>
 </head>
 <body>
-    <div class="hamburger-menu">
+    <!-- <div class="hamburger-menu">
         <ion-icon name="menu-outline" id="hamburger-icon"></ion-icon>
     </div>
     <div class="sidebar" id="sidebars">
@@ -49,7 +49,7 @@
                 </a>
             </li>
         </ul>
-    </div>
+    </div> -->
     @yield('content')
 </body>
 </html>

@@ -2,7 +2,8 @@
 
 @section('content')
     <div class="container">
-        <form action="{{ route('login') }}" class="p-5">      
+        <form action="{{ route('login') }}" method="post" class="p-5"> 
+            @csrf     
             <h1 class="mb-3 mt-5">Login</h1>
         <!-- Email input -->
             <div class="form-outline mb-4">

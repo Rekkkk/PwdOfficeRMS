@@ -17,10 +17,23 @@ use App\Http\Controllers\TryController;
 
 Route::get('/', function () {
     return view('landingpage/landingpages/home');
-})->name('home');
-Route::get('/test', function () {
-    return view('loginuser/sidebar');
-})->name('test');
+})->name('home');   
 
-Route::get('/loginpage', [LoginController::class, 'loginPage'])->name('login.page');
+
+Route::get('/page/login', function () {
+    return view('landingpage/landingpages/login');
+})->name('login.page')->Middleware('AuthCheck');   
+
+
 Route::post('/login', [LoginController::class, 'login'])->name('login');
+
+
+Route::get('/userpages/dashboard', [LoginController::class, 'redirectUser'])->middleware('AuthCheck');
+
+
+Route::get('/logout', [LoginController::class, 'logOut'])->name('logout');
+
+
+    
+
+

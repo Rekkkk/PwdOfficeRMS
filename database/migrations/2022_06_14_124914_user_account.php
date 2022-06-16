@@ -18,7 +18,7 @@ return new class extends Migration
             $table->bigInteger('user_id')->unsigned();
             $table->string('email');
             $table->string('password');
-            $table->boolean('is_super_admin');
+            $table->boolean('is_super_admin')->default('0');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
         });
