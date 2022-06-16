@@ -17,10 +17,10 @@ class AuthenticationCheck
     public function handle(Request $request, Closure $next)
     {
        
-        // if(!Session()->has('loginId') == ($request->path() != '/loginpage')){
-        //     return redirect('page/login');
-        // }
-        if(session()->has('loginId') && ($request->path() == 'page/login')){
+        if(!Session()->has('loginId') == ($request->path() != '/dashboard')){
+            return view('landingpage/landingpages/login');
+        }
+        if(session()->has('loginId') && ($request->path() == '/' || $request->path() == '/login')){
            return  redirect('userpages/dashboard'); 
         }
         return $next($request);

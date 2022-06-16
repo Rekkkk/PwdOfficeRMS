@@ -13,7 +13,7 @@
             <img src="{{ asset('/img/logo.jpg') }}" style="width:40px;" class="rounded-pill">
             PWD OFFICE
         </a>
-        <a class="navbar-brand mb-2" href="{{ route('login.page') }}">Login</a>
+        <a class="navbar-brand mb-2" href="{{ route('login') }}">Login</a>
     </nav>
     
     @yield('content')

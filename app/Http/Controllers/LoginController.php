@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
-    // public function loginPage(){
-    //     return view('landingpage/landingpages/login');
-    // }
+    public function loginPage(){
+        return view('landingpage/landingpages/login');
+    }
     public function login(Request $request){
         $userLogin = Account::where('email', '=', $request->email)
             ->where('password', '=', $request->password)
@@ -19,21 +19,18 @@ class LoginController extends Controller
 
         if($userLogin){
             $request->session()->put('loginId', $userLogin->id);
-            return redirect('userpages/dashboard');
+            return redirect('dashboard');
         }else{
             return('Not OKAY');
         }
     }
 
     public function redirectUser(){
-
         $data = array();
-
         if(Session::has('loginId')){
             $data = Account::where('id', '=', Session::get('loginId'))->first();
         }
-       
-        return view ('userpages.dashboard', compact('data'));
+        return view ('userpages/dashboard', compact('data'));
     }
 
     public function logOut(){
