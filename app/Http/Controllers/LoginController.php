@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {
+    
     public function loginPage(){
         return view('landingpage/landingpages/login');
     }
@@ -18,7 +19,7 @@ class LoginController extends Controller
             ->first();
 
         if($userLogin){
-            $request->session()->put('loginId', $userLogin->id);
+            $request->session()->put('loginId', $userLogin->account_id);
             return redirect('dashboard');
         }else{
             return('Not OKAY');
@@ -28,7 +29,7 @@ class LoginController extends Controller
     public function redirectUser(){
         $data = array();
         if(Session::has('loginId')){
-            $data = Account::where('id', '=', Session::get('loginId'))->first();
+            $data = Account::where('account_id', '=', Session::get('loginId'))->first();
         }
         return view ('userpages/dashboard', compact('data'));
     }

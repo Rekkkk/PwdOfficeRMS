@@ -12,8 +12,6 @@ class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
 
-    
-
     /**
      * The attributes that are mass assignable.
      *
@@ -21,6 +19,7 @@ class User extends Authenticatable
      */
 
     public $timestamps = false;
+
     protected $fillable = [
         'first_name',
         'last_name',
@@ -49,6 +48,6 @@ class User extends Authenticatable
     ];
 
     public function account(){
-        return $this->hasOne('App\Models\Account');
+        return $this->hasOne(Account::class, 'user_id', 'account_id ');
     }
 }

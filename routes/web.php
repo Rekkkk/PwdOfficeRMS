@@ -19,8 +19,8 @@ Route::get('/', function () {
     return view('landingpage/landingpages/home');
 })->name('home');   
 
-Route::get('/admin/accountmanagement', function () {
-    return view('userpages/accountmanagement');
+Route::get('/admin/account', function () {
+    return view('userpages/account');
 })->name('accounts');
 
 
@@ -30,13 +30,16 @@ Route::get('/admin/accountmanagement', function () {
 //     Route::post('/check-credential', 'login')->name('login.check');
 //     Route::get('/dashboard', 'redirectUser')->name('dashboard');
 //     Route::get('/logout', 'logOut')->name('logout');
-// })->middleware('');
+// });
 
 Route::middleware(['AuthCheck'])->group(function () {
-    Route::controller(LoginController::class)->group(function () {
-        Route::get('/login', 'loginPage')->name('login');
-        Route::post('/check-credential', 'login')->name('login.check');
-        Route::get('/dashboard', 'redirectUser')->name('dashboard');
-        Route::get('/logout', 'logOut')->name('logout');
-    });
+   
+});
+
+
+Route::controller(LoginController::class)->group(function () {
+    Route::get('/login', 'loginPage')->name('login');
+    Route::post('/check-credential', 'login')->name('login.check');
+    Route::get('/dashboard', 'redirectUser')->name('dashboard');
+    Route::get('/logout', 'logOut')->name('logout');
 });

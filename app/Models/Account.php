@@ -10,9 +10,15 @@ class Account extends Model
     use HasFactory;
 
     protected $table = 'user_account';
+    
     public $timestamps = false;
 
     public function user(){
-        return $this->belongsTo('App\Models\User');
+        return $this->belongsTo(User::class, 'user_id');
+    }
+
+    public function barangay(){
+        return $this->hasMany(Barangay::class);
     }
 }
+

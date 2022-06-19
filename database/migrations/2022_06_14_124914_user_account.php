@@ -13,15 +13,20 @@ return new class extends Migration
      */
     public function up()
     {
+      
         Schema::create('user_account', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('user_id')->unsigned();
+            $table->bigIncrements('account_id');
             $table->string('email');
             $table->string('password');
             $table->boolean('is_super_admin')->default('0');
-            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
 
-        });
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('user_id')->on('users');
+
+            $table->unsignedBigInteger('barangay_id');
+            $table->foreign('barangay_id')->references('barangay_id')->on('barangays')->onDelete('cascade');
+         
+            }); 
     }
 
     /**

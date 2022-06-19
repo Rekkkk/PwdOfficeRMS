@@ -79,7 +79,7 @@ div.content {
     <div class="sidebar">
         <a class="active" href="{{ route('dashboard') }}">DASHBOARD</a>
         <a href="#news">APPOINTMENT LIST</a>
-        <a href="#contact">APPLICANTION</a>
+        <a href="#contact">APPLICATION</a>
         <a href="#about">PWD LIST</a>
         <a href="#about">GENERATE ID</a>
         <a href="#about">BENEFITS</a>
