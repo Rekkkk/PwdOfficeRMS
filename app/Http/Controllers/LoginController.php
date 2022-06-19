@@ -1,11 +1,10 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Http\Request;
 use App\Models\Account;
 use Session;
 
-
-use Illuminate\Http\Request;
 
 class LoginController extends Controller
 {

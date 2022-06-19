@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\LoginController;
-use App\Http\Controllers\TryController;
+use App\Http\Controllers\AccountManagementController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,27 +19,22 @@ Route::get('/', function () {
     return view('landingpage/landingpages/home');
 })->name('home');   
 
-Route::get('/admin/account', function () {
-    return view('userpages/account');
-})->name('accounts');
+Route::group(['middleware' => 'AuthCheck'], function () {
 
+    Route::controller(LoginController::class)->group(function () {
+        Route::get('/login', 'loginPage')->name('login');
+        Route::post('/check-credential', 'login')->name('login.check');
+        Route::get('/dashboard', 'redirectUser')->name('dashboard');
+        Route::get('/logout', 'logOut')->name('logout');
+    });
 
-
-// Route::controller(LoginController::class)->group(function () {
-//     Route::get('/login', 'loginPage')->name('login');
-//     Route::post('/check-credential', 'login')->name('login.check');
-//     Route::get('/dashboard', 'redirectUser')->name('dashboard');
-//     Route::get('/logout', 'logOut')->name('logout');
-// });
-
-Route::middleware(['AuthCheck'])->group(function () {
-   
+    Route::controller(AccountManagementController::class)->group(function () {
+        Route::get('/account-management', 'accountManagementPage')->name('account.management');
+        Route::get('/create-account', 'createNewAccountPage')->name('create.account');
+        Route::get('/create', 'createNewAccount')->name('create');
+    });
+    
 });
 
 
-Route::controller(LoginController::class)->group(function () {
-    Route::get('/login', 'loginPage')->name('login');
-    Route::post('/check-credential', 'login')->name('login.check');
-    Route::get('/dashboard', 'redirectUser')->name('dashboard');
-    Route::get('/logout', 'logOut')->name('logout');
-});
+

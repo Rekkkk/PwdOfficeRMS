@@ -83,7 +83,7 @@ div.content {
         <a href="#about">PWD LIST</a>
         <a href="#about">GENERATE ID</a>
         <a href="#about">BENEFITS</a>
-        <a href="{{ route('accounts') }}">ACCOUNTS   </a>
+        <a href="{{ route('account.management') }}">ACCOUNTS   </a>
         <a href="#about">REPORTS</a>
       </div>
       
