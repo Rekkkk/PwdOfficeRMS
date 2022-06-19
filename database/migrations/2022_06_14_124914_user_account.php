@@ -19,13 +19,8 @@ return new class extends Migration
             $table->string('email');
             $table->string('password');
             $table->boolean('is_super_admin')->default('0');
-
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('user_id')->on('users');
-
-            $table->unsignedBigInteger('barangay_id');
-            $table->foreign('barangay_id')->references('barangay_id')->on('barangays')->onDelete('cascade');
-         
             }); 
     }
 

@@ -23,11 +23,15 @@ class User extends Authenticatable
     protected $table = 'users';
 
     protected $fillable = [
-       
         'last_name',
+        'first_name',
         'middle_name',
-        'gender',
+        'affiliation',
         'birthday',
+        'gender',
+        'civil_status',
+        'address',
+        'phone_number'
     ];
 
     /**

@@ -16,11 +16,15 @@ class UserSeeder extends Seeder
     public function run()
     {
         User::create([
-            'first_name' => 'Jeric Michael',
             'last_name' => 'Cabusas',
+            'first_name' => 'Jeric Michael',
             'middle_name' => 'Goloran',
+            'affiliation' => '',
+            'birthday' => '2000-11-17',
             'gender' => 'Male',
-            'birthday' => '2000-11-17'
+            'civil_status' => 'Single',
+            'address' => 'Cabuyao City',
+            'phone_number' => '09095145293'
         ]);
     }
 }

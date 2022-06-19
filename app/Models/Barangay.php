@@ -13,9 +13,9 @@ class Barangay extends Model
 
     public $timestamps = false;
 
-    // protected $fillable = [
-    //     'barangay_name'
-    // ];
+    protected $fillable = [
+        'barangay_name'
+    ];
 
     public function account(){
         return $this->belongsTo(Account::class);
