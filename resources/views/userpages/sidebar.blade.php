@@ -17,7 +17,6 @@
             font-family: "Lato", sans-serif;
         }
         .sidebar {
-
             margin: 0;
             padding: 0;
             width: 200px;
@@ -70,7 +69,6 @@
                 PWD OFFICE
             </a>
             <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" id="navbarDropdown" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
                 <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                     <li><a class="dropdown-item" href="#!">Settings</a></li>
                     <li><a class="dropdown-item" href="#!">Activity Log</a></li>
@@ -79,20 +77,24 @@
                 </ul>
             </li>
         </ul>
-    </nav><br><br><br>
-    <div class="sidebar">
-        <a class="active" href="{{ route('dashboard') }}">DASHBOARD</a>
-        <a href="#news">APPOINTMENT LIST</a>
-        <a href="#contact">APPLICATION</a>
-        <a href="#about">PWD LIST</a>
-        <a href="#about">GENERATE ID</a>
-        <a href="#about">PROGRAMS</a>
-        <a href="{{ route('account.management') }}">ACCOUNTS   </a>
-        <a href="#about">REPORTS</a>
-        <a href="{{ route('logout') }}">LOG OUT</a>
+    </nav>
+    <div style="margin-top: 65px ">
+        <div class="sidebar">
+            <a class="active" href="{{ route('dashboard') }}">DASHBOARD</a>
+            <a href="#news">APPOINTMENT LIST</a>
+            <a href="#contact">APPLICATION</a>
+            <a href="#about">PWD LIST</a>
+            <a href="#about">GENERATE ID</a>
+            <a href="#about">PROGRAMS</a>
+            <a href="{{ route('account.management') }}">ACCOUNTS   </a>
+            <a href="#about">REPORTS</a>
+            <a href="{{ route('logout') }}">LOG OUT</a>
+        </div>
+        <div class="content">
+            @yield('content')
+        </div>
+
     </div>
-    <div class="content">
-        @yield('content')
-    </div>
+    
 </body>
 </html>

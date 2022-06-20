@@ -17,8 +17,10 @@ class Account extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function barangay(){
-        return $this->hasMany(Barangay::class);
+    public function barangay()
+    {
+	    return $this->belongsToMany(Barangay::class);
+      
     }
 }
 

@@ -17,8 +17,10 @@ class Barangay extends Model
         'barangay_name'
     ];
 
-    public function account(){
-        return $this->belongsTo(Account::class);
+    public function account()
+    {
+		return $this->belongsToMany(Account::class)
+        ->withPivot(['account_id']);
     }
 
 }

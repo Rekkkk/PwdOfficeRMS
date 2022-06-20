@@ -4,9 +4,11 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Barangay;
 use App\Models\Account;
+use App\Models\BarangayHandle;
 
-class UserAccountSeeder extends Seeder
+class BarangayHandleSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,13 +17,9 @@ class UserAccountSeeder extends Seeder
      */
     public function run()
     {
-        Account::create([
-            'email' => 'jeric@yahoo.com',
-            'password' => '1',
-            'is_super_admin' => '0',
-            'user_id' => '1',
+        BarangayHandle::create([
+            'account_id' => '1',
+            'barangay_id' => '1',
         ]);
-
-        
     }
 }
