@@ -65,43 +65,38 @@
     </style>
 </head>
 <body>
-    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">   
-        <ul class="navbar-nav ms-auto ms-md-0 me-3 me-lg-4">
-            <a class="navbar-brand" href="{{ route('dashboard') }}">
-                <img src="{{ asset('/img/logo.jpg') }}" style="width:40px;" class="rounded-pill">
-                PWD OFFICE
-            </a>
-            <li class="nav-item dropdown">
-                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                    <li><a class="dropdown-item" href="#!">Settings</a></li>
-                    <li><a class="dropdown-item" href="#!">Activity Log</a></li>
-                    <li><hr class="dropdown-divider" /></li>
-                    <li><a class="dropdown-item" href="#!">Logout</a></li>
+    <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark fixed-top">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <a class="navbar-brand" href="{{ route('dashboard') }}">
+                        <img src="{{ asset('/img/logo.jpg') }}" style="width:40px;" class="rounded-pill">
+                        PWD OFFICE
+                    </a>
                 </ul>
-            </li>
-            <li class="nav-item dropdown">
-                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ $request->session()->all(); }}}</a>
-                <div class="dropdown-menu">
-                  <a class="dropdown-item" href="#">Link 1</a>
-                  <a class="dropdown-item" href="#">Link 2</a>
-                  <a class="dropdown-item" href="#">Link 3</a></div>
-              </li>
-        </ul>
+                <ul class="navbar-nav" style="margin-right: 4%">
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" ></a>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="href="{{ route('logout') }}">Log out </a></div>
+                      </li>
+                </ul>
+            </div>
     </nav>
     <div style="margin-top: 65px ">
         <div class="sidebar">
-
             <a class="active" href="{{ route('dashboard') }}">DASHBOARD</a>
             <a href="#news">APPOINTMENT LIST</a>     
             <a href="#contact">APPLICATION</a>
             <a href="#about">PWD LIST</a>
             <a href="#about">GENERATE ID</a>
             <a href="#about">PROGRAMS</a>
-            @if(session()->has('is_super_admin') == 1)
-                <a href="{{ route('account.management') }}">ACCOUNTS   </a>
+            @if(Session::get('isSuperAdmin') == 1) 
+                <a href="{{ route('account.management') }}">ACCOUNTS </a>
             @endif
             <a href="#about">REPORTS</a>
-            <a href="{{ route('logout') }}">LOG OUT</a>
         </div>
         <div class="content">
             @yield('content')

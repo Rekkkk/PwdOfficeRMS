@@ -21,7 +21,5 @@ class UserAccountSeeder extends Seeder
             'is_super_admin' => '0',
             'user_id' => '1',
         ]);
-
-        
     }
 }

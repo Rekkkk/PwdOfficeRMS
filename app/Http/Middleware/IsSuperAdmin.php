@@ -4,6 +4,8 @@ namespace App\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
+use App\Models\Account;
+use Session;
 
 class IsSuperAdmin
 {
@@ -16,7 +18,9 @@ class IsSuperAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-          if(session()->has('is_super_admin') == 1 && ($request->path() == 'account-management')){
+        $userLogin = Account::where('account_id', '=', Session::get('loginId'))->first();
+
+        if($userLogin->is_super_admin == 0 && ($request->path() == 'account-management')){
             return redirect()->route('dashboard');
         }
 
