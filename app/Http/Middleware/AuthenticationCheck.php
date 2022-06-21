@@ -16,13 +16,17 @@ class AuthenticationCheck
      */
     public function handle(Request $request, Closure $next)
     {
-       
         // if(!Session()->has('loginId') == ($request->path() != 'dashboard')){
-        //     return view('landingpage/landingpages/login');
-        // }
-        if(session()->has('loginId') && ($request->path() == '/' || $request->path() == '/login')){
-           return  redirect('userpages/dashboard'); 
+        //     return redirect()->route('home');
+        
+        if(session()->has('loginId') && ($request->path() == 'home' || $request->path() == 'login')){
+           return  redirect('dashboard'); 
+           
         }
-        return $next($request);
+        $response = $next($request);
+
+        return $response->header('Cache-Control','nocache, no-store, max-age=0, must-revalidate')
+        ->header('Pragma','no-cache')
+        ->header('Expires','Sun, 02 Jan 1990 00:00:00 GMT');
     }
 }

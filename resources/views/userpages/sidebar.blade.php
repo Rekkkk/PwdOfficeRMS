@@ -9,7 +9,10 @@
     <script src="{{ asset('/js/script.js') }}"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css">
-    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    
+    
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script><script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
     <title>Document</title>
     <style>
         body {
@@ -76,17 +79,27 @@
                     <li><a class="dropdown-item" href="#!">Logout</a></li>
                 </ul>
             </li>
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#">{{ $request->session()->all(); }}}</a>
+                <div class="dropdown-menu">
+                  <a class="dropdown-item" href="#">Link 1</a>
+                  <a class="dropdown-item" href="#">Link 2</a>
+                  <a class="dropdown-item" href="#">Link 3</a></div>
+              </li>
         </ul>
     </nav>
     <div style="margin-top: 65px ">
         <div class="sidebar">
+
             <a class="active" href="{{ route('dashboard') }}">DASHBOARD</a>
-            <a href="#news">APPOINTMENT LIST</a>
+            <a href="#news">APPOINTMENT LIST</a>     
             <a href="#contact">APPLICATION</a>
             <a href="#about">PWD LIST</a>
             <a href="#about">GENERATE ID</a>
             <a href="#about">PROGRAMS</a>
-            <a href="{{ route('account.management') }}">ACCOUNTS   </a>
+            @if(session()->has('is_super_admin') == 1)
+                <a href="{{ route('account.management') }}">ACCOUNTS   </a>
+            @endif
             <a href="#about">REPORTS</a>
             <a href="{{ route('logout') }}">LOG OUT</a>
         </div>

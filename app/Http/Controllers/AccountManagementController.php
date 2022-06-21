@@ -14,7 +14,6 @@ class AccountManagementController extends Controller
 
     public function accountManagementPage(){
         $data ['users'] = User::all();
- 
 
         return view('userpages/accountmanagement/account-management', $data);
         
@@ -40,6 +39,6 @@ class AccountManagementController extends Controller
             'barangay_id' => $request->barangay
         ]);
 
-        return "OKAy";
+        return redirect()->route('account.management');
     }
 }

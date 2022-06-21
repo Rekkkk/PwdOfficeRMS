@@ -18,8 +18,8 @@ class BarangayHandleSeeder extends Seeder
     public function run()
     {
         BarangayHandle::create([
-            'account_id' => '1',
-            'barangay_id' => '1',
+            'account_id' => 1,
+            'barangay_id' => 1
         ]);
     }
 }

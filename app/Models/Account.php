@@ -9,7 +9,7 @@ class Account extends Model
 {
     use HasFactory;
 
-    protected $table = 'user_account';
+    protected $table = 'accounts';
     
     public $timestamps = false;
 
@@ -27,7 +27,6 @@ class Account extends Model
     public function barangay()
     {
 	    return $this->belongsToMany(Barangay::class);
-      
     }
 }
 

@@ -9,7 +9,7 @@ class BarangayHandle extends Model
 {
     use HasFactory;
 
-    protected $table = 'handle_barangay';
+    protected $table = 'account_barangay';
 
     public $timestamps = false;
 
@@ -19,7 +19,7 @@ class BarangayHandle extends Model
     ];
 
 
-    public function handle_barangay(){
-        return $this->hasManyThrough(Account::class, Barangay::class);
-    }
+    // public function handle_barangay(){
+    //     return $this->hasManyThrough(Account::class, Barangay::class);
+    // }
 }
