@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('last_name');
             $table->string('first_name');
             $table->string('middle_name');
-            $table->string('affiliation');
+            $table->string('affiliation')->nullable();
             $table->date('birthday');
             $table->string('gender');
             $table->string('civil_status');

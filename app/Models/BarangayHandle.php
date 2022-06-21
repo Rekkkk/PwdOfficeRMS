@@ -13,11 +13,13 @@ class BarangayHandle extends Model
 
     public $timestamps = false;
 
+    protected $fillable = [
+        'account_id',
+        'barangay_id'
+    ];
+
+
     public function handle_barangay(){
         return $this->hasManyThrough(Account::class, Barangay::class);
     }
-    
-  
-
-
 }

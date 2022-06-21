@@ -13,6 +13,13 @@ class Account extends Model
     
     public $timestamps = false;
 
+    protected $fillable = [
+        'email',
+        'password',
+        'is_super_admin',
+        'user_id'
+    ];
+
     public function user(){
         return $this->belongsTo(User::class, 'user_id');
     }

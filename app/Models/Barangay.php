@@ -14,6 +14,7 @@ class Barangay extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        
         'barangay_name'
     ];
 

@@ -1,10 +1,16 @@
 @extends('userpages.sidebar')
 
 @section('content')
+    <style>
+        #select-barangay-div{
+            display: none;
+        }
+    </style>
   <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js"></script>
     <div class="container">
-        <form action="{{ route('create') }}" method="GET">
+        <form action="{{ route('create') }}" method="POST">
+            @csrf
         <h1>Create Account</h1>
         <div class="row">
             <div class="col">
@@ -57,22 +63,45 @@
                 <label>Phone Number :</label>
                 <input type="text" class="form-control" placeholder="Enter cellphone number" name="phone_number" minlength="11" maxlength="11">
             </div>    
-            <div class="col">
-                <label>Assign Barangay :</label>
-                <select  class="custom-select mb-3">
-                    <option selected>Select Barangay</option>
-                    @foreach($barangays as $barangay)
-                        <option value="{{ $barangay->barangay_name }}">{{ $barangay->barangay_name }}</option>
-                    @endforeach
-                </select>
-            </div>   
-        </div><br><br>
-        <div class="row">
-            <div class="col">
-                <button type="submit" class="btn btn-primary">Create Account</button>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <label>Email :</label>
+                    <input type="email" class="form-control" placeholder="Enter Address" name="email">
+                </div>
+                <div class="col">
+                    <label>Password :</label>
+                    <input type="password" class="form-control" placeholder="Enter Address" name="password">
+                </div>
+            </div><br>
+            <div class="row">
+                <div class="col">
+                    <input type="button" value=" Next "data-toggle="modal" data-target="#myModal" class="btn btn-primary">
+                </div>
+            </div><br>
+            <div class="modal" id="myModal">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Assign Barangay</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+                    
+                        <select  name="barangay" class="custom-select mb-3">
+                            <option selected>Select Barangay</option>
+                            @foreach($barangays as $barangay)
+                                <option value="{{ $barangay->barangay_id }}">{{ $barangay->barangay_name }}</option>
+                            @endforeach
+                        </select>
+              
+                        </div>
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-success">Create Account</button>
+                        </div>
+                    </div>
+                </div>
             </div>
-        </div>
         </form>
     </div>
-
 @endsection

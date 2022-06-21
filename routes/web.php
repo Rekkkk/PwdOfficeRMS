@@ -31,7 +31,7 @@ Route::group(['middleware' => 'AuthCheck'], function () {
     Route::controller(AccountManagementController::class)->group(function () {
         Route::get('/account-management', 'accountManagementPage')->name('account.management');
         Route::get('/create-account', 'createNewAccountPage')->name('create.account');
-        Route::get('/create', 'createNewAccount')->name('create');
+        Route::post('/create', 'createNewAccount')->name('create');
     });
     
 });
