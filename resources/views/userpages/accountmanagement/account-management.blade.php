@@ -4,9 +4,7 @@
     <div class="container">
         <h1>Account Management</h1>
         <div class="row">
-            <form action="{{ route('create.account') }}">
-                <input type="submit" value="Create Account" class="btn btn-success" id="create-account">
-            </form>
+            <a href="{{ route('create.account') }}" class="btn btn-success">Create Account</a>
         </div><br>
         <div class="row">
             <table class="table">
@@ -28,13 +26,11 @@
                         <td>{{ $user->first_name }}</td>
                         <td>{{ $user->middle_name }}</td>
                         <td>Wala pa</td>   
-                        <td><a href="">Details</a></td>   
+                        <td><a href="{{ route('view.account', $user->user_id) }}" class="btn btn-success">SHOW</a></td>   
                     </tr>
                 @endforeach
                 </tbody>
             </table>
         </div>
-
     </div>
-  
 @endsection

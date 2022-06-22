@@ -8,6 +8,8 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 
+use App\Models\Account;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -21,6 +23,10 @@ class User extends Authenticatable
     public $timestamps = false;
 
     protected $table = 'users';
+
+    
+    protected $primaryKey = 'user_id';
+
 
     protected $fillable = [
         'user_id',
@@ -55,6 +61,9 @@ class User extends Authenticatable
     ];
 
     public function account(){
-        return $this->hasOne(Account::class, 'user_id', 'account_id');
+        return $this->hasOne(Account::class, 'account_id' , 'user_id');
     }
+    // public function account(){
+    //     return $this->hasOne(Account::class);
+    // }
 }

@@ -4,12 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use App\Models\User;
+
 
 class Account extends Model
 {
     use HasFactory;
 
     protected $table = 'accounts';
+
+    protected $primaryKey = 'account_id';
+
     
     public $timestamps = false;
 
@@ -21,12 +26,12 @@ class Account extends Model
     ];
 
     public function user(){
-        return $this->belongsTo(User::class, 'user_id');
+        return $this->belongsTo(User::class, 'user_id', $primaryKey);
     }
-
-    public function barangay()
-    {
-	    return $this->belongsToMany(Barangay::class);
-    }
+    
+    // public function barangay()
+    // {
+	//     return $this->belongsToMany(Barangay::class);
+    // }
 }
 

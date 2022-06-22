@@ -20,7 +20,7 @@ return new class extends Migration
             $table->string('password');
             $table->boolean('is_super_admin')->default('0');
             $table->unsignedBigInteger('user_id');
-            $table->foreign('user_id')->references('user_id')->on('users');
+            $table->foreign('user_id')->references('user_id')->on('users')->onDelete('cascade');
             }); 
     }
 

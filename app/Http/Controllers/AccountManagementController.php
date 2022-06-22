@@ -41,4 +41,16 @@ class AccountManagementController extends Controller
 
         return redirect()->route('account.management');
     }
+
+    public function viewAccount($id){
+
+        // $users = User::with('account')->get();
+   
+        $data = User::where('user_id', '=', $id)->first();
+        // $userAccount = Account::where('user_id', '=', $userData->user_id)->first();
+
+        // $userAccount = User::all()->last()->u_id
+        
+        return view('userpages/accountmanagement/view-account', compact('data'));
+    }
 }

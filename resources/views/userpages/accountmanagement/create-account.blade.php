@@ -79,22 +79,20 @@
                     <input type="button" value=" Next "data-toggle="modal" data-target="#myModal" class="btn btn-primary">
                 </div>
             </div><br>
-            <div class="modal" id="myModal">
-                <div class="modal-dialog">
-                    <div class="modal-content">
+            <div class="modal" id="myModal" >
+                <div class="modal-dialog ">
+                    <div class="modal-content" >
                         <div class="modal-header">
                             <h4 class="modal-title">Assign Barangay</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
-                    
                         <select  name="barangay" class="custom-select mb-3">
                             <option selected>Select Barangay</option>
                             @foreach($barangays as $barangay)
                                 <option value="{{ $barangay->barangay_id }}">{{ $barangay->barangay_name }}</option>
                             @endforeach
                         </select>
-              
                         </div>
                         <div class="modal-footer">
                             <button type="submit" class="btn btn-success">Create Account</button>
