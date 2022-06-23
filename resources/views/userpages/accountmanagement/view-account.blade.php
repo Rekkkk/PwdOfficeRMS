@@ -3,6 +3,7 @@
 @section('content')
 
 <div class="container rounded bg-white mb-5">
+    <a class="btn btn-primary" href="{{ route('account.management') }}" style="width: 100px">Back</a>
     <div class="row">
         <div class="col-md-7 border-right">
             <div class="p-3 py-5">
@@ -50,9 +51,60 @@
                 </div><br>
                 <div class="col-md-12">
                     <label class="labels">Actions:</label><br>
+                    {{-- <a href="{{route('disable.account', $data->user_id)}}" class="btn btn-danger">Disable</a> --}}
                     <input type="button" class="btn btn-secondary" value="Suspend">
-                    <input type="button" class="btn btn-danger" value="Disable">
-                    <input type="button" class="btn btn-success" value="Enable">
+                    {{-- <input type="button"  value="Disable">
+                    <input type="button" class="btn btn-success" value="Enable"> --}}
+                <!-- Button to Open the Modal -->
+                <button type="button" class="btn btn-danger " data-toggle="modal" data-target="#myModal">
+                    Disable Account
+                </button>
+
+                <!-- The Modal -->
+                <div class="modal" id="myModal">
+                    <div class="modal-dialog">
+                    <div class="modal-content">
+                   <!-- Modal Header -->
+                    <div class="modal-header">
+                        <h4 class="modal-title">Warning</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                        <!-- Modal body -->
+                        <div class="modal-body">
+                         <h5 style="text-align: center">Are you sure to disable this account ?</h5>
+                        </div>
+                
+                        <!-- Modal footer -->
+                        <div class="modal-footer">
+                            <a href="{{route('disable.account', $data->user_id)}}" class="btn btn-success">Confirm</a>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                        </div>
+                
+                    </div>
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 </div>
             </div>
         </div>

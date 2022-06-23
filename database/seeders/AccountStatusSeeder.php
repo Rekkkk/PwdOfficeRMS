@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Account;
+use App\Models\AccountStatus;
 
-class UserAccountSeeder extends Seeder
+class AccountStatusSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,15 +15,10 @@ class UserAccountSeeder extends Seeder
      */
     public function run()
     {
-        Account::create([
-            'email' => 'jeric@yahoo.com',
-            'password' => '1',
-            'is_super_admin' => '1',
-            'user_id' => '1',
-            
-
-
-
+        AccountStatus::create([
+            'account_id' => 1,
+            'is_disable' => 1,
+            'is_suspend' => 0
         ]);
     }
 }

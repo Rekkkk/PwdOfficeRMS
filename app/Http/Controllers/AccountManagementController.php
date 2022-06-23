@@ -7,7 +7,7 @@ use App\Models\User;
 use App\Models\Barangay;
 use App\Models\BarangayHandle;
 use App\Models\Account;
-
+use App\Models\AccountStatus;
 
 class AccountManagementController extends Controller
 {
@@ -43,14 +43,20 @@ class AccountManagementController extends Controller
     }
 
     public function viewAccount($id){
-
-        // $users = User::with('account')->get();
    
         $data = User::where('user_id', '=', $id)->first();
-        // $userAccount = Account::where('user_id', '=', $userData->user_id)->first();
-
-        // $userAccount = User::all()->last()->u_id
-        
         return view('userpages/accountmanagement/view-account', compact('data'));
+    }
+
+    public function disableAccount($id){
+
+        $users = User::where('user_id', '=', $id)->first();
+       
+        // $users = User::join('accounts', $id, '=', 'accounts.user_id')
+        // ->join('account_status', 'accounts.account_id', '=', 'account_status.account_id')
+        // ->get('is_disable');
+
+        return $users->account->accountStatus->is_disable;
+
     }
 }

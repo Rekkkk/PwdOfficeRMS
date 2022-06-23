@@ -31,9 +31,11 @@ Route::group(['middleware' => 'AuthCheck'], function () {
     Route::group(['middleware' => 'IsSuperAdmin'], function () {
         Route::controller(AccountManagementController::class)->group(function () {
             Route::get('/account-management', 'accountManagementPage')->name('account.management');
-            Route::get('/account-management/account{id}', 'viewAccount')->name('view.account');
             Route::get('/account-management/create-account', 'createNewAccountPage')->name('create.account');
             Route::post('/create', 'createNewAccount')->name('create');
+            Route::get('/account-management/account{id}', 'viewAccount')->name('view.account');
+            Route::get('/disable{id}', 'disableAccount')->name('disable.account');
+           
         });
     });
     

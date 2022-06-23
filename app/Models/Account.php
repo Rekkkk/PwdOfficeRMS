@@ -4,8 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use App\Models\User;
-
 
 class Account extends Model
 {
@@ -29,9 +27,12 @@ class Account extends Model
         return $this->belongsTo(User::class, 'user_id', $primaryKey);
     }
     
-    // public function barangay()
-    // {
-	//     return $this->belongsToMany(Barangay::class);
-    // }
-}
+    public function barangay()
+    {
+	    return $this->belongsToMany(Barangay::class);
+    }
+    public function accountStatus(){
+        return $this->hasOne(AccountStatus::class, 'account_id');
+    }
+}   
 
