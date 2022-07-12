@@ -13,13 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('account_status', function (Blueprint $table) {
+        Schema::create('handle_barangay', function (Blueprint $table) {
             $table->unsignedBigInteger('account_id');
             $table->foreign('account_id')->references('account_id')->on('accounts');
-            $table->boolean('is_disable')->default('0');
-            $table->boolean('is_suspend')->default('0');
-            $table->date('suspend_start')->nullable();
-            $table->date('suspend_end')->nullable();
+            $table->unsignedBigInteger('barangay_id');
+            $table->foreign('barangay_id')->references('barangay_id')->on('barangays');
         });
     }
 
@@ -30,6 +28,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('account_status');
+        Schema::dropIfExists('handle_barangay');
     }
 };

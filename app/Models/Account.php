@@ -35,4 +35,3 @@ class Account extends Model
         return $this->hasOne(AccountStatus::class, 'account_id');
     }
 }   
-

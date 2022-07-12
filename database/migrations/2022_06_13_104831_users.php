@@ -26,8 +26,9 @@ return new class extends Migration
             $table->string('phone_number');
         });
     }
+
     /**
-     * Reverse the migrations.  
+     * Reverse the migrations.
      *
      * @return void
      */

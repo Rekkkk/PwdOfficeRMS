@@ -1,8 +1,10 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\LoginController;
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\AccountManagementController;
+use App\Http\Controllers\PwdManagementController;
+use App\Http\Controllers\AppointmentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,13 +21,49 @@ Route::get('/', function () {
     return view('landingpage/landingpages/home');
 })->name('home');   
 
-Route::group(['middleware' => 'AuthCheck'], function () {
 
-    Route::controller(LoginController::class)->group(function () {
-        Route::get('/login', 'loginPage')->name('login');
-        Route::post('/check-credential', 'login')->name('login.check');
-        Route::get('/dashboard', 'redirectUser')->name('dashboard');
-        Route::get('/logout', 'logOut')->name('logout');
+// Route::name('appointment')->group(function () {
+//     Route::get('/new-application', function () {
+//         return view('landingpage/landingpages/appointments/new-applicant');
+//     })->name('appointment.new-applicant');
+
+// });
+
+
+
+
+Route::prefix('appointment')->group(function () {
+    Route::get('/new-application', function () {
+        return view('landingpage/landingpages/appointments/new-applicant');
+    })->name('appointment.new-applicant');
+    Route::get('/renewal', function () {
+        return view('landingpage/landingpages/appointments/renewal');
+    })->name('appointment.renewal');
+    // Route::get('/new-application', function () {
+    //     return view('landingpage/landingpages/appointments/new-applicant');
+    // })->name('appointment.new-applicant');
+    // Route::get('/new-application', function () {
+    //     return view('landingpage/landingpages/appointments/new-applicant');
+    // })->name('appointment.new-applicant');
+        
+});
+
+
+Route::controller(AuthController::class)->group(function () {
+    Route::get('/login', 'loginPage')->name('login')->middleware('AuthCheck');
+    Route::post('/check-credential', 'login')->name('login.check');
+    Route::get('/logout', 'logOut')->name('logout');
+});
+
+Route::group(['prefix' => 'authenticate',  'middleware' => 'AuthCheck'], function()
+{
+
+    Route::get('/dashboard', [AuthController::class, 'redirectUser'])->name('dashboard');
+
+    Route::controller(AppointmentController::class)->group(function () {
+        // Route::get('/new-application', 'newApplicantPage')->name('appointment.new-applicant');
+        Route::get('/appointment', 'appointmentPage')->name('appointment.page');
+    
     });
 
     Route::group(['middleware' => 'IsSuperAdmin'], function () {
@@ -35,9 +73,18 @@ Route::group(['middleware' => 'AuthCheck'], function () {
             Route::post('/create', 'createNewAccount')->name('create');
             Route::get('/account-management/account{id}', 'viewAccount')->name('view.account');
             Route::get('/disable{id}', 'disableAccount')->name('disable.account');
-           
+            Route::post('/suspend{id}', 'suspendAccount')->name('suspend.account');
         });
     });
+
+    
+    Route::controller(PwdManagementController::class)->group(function () {
+        Route::get('/pwd-management', 'pwdManagementPage')->name('pwd.management');
+        // Route::post('/check-credential', 'login')->name('login.check');
+        // Route::get('/dashboard', 'redirectUser')->name('dashboard');
+        // Route::get('/logout', 'logOut')->name('logout');
+    });
+
     
 });
 

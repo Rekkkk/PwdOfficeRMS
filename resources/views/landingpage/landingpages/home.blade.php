@@ -2,6 +2,6 @@
 
 @section('content')
     <div class="container-fuild">
-        <h1>HOME PAGE</h1>
+        <h1>Landing PAGE</h1>
     </div>
 @endsection

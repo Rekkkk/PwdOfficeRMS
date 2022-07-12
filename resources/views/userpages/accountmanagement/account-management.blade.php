@@ -1,32 +1,31 @@
 @extends('userpages.sidebar')
 
 @section('content')
+    {{-- <div id='app'>
+        <account-management-component :accounts = "{{ $users }}"/>
+    </div> --}}
     <div class="container">
         <h1>Account Management</h1>
+        <a href="{{ route('create.account') }}" class="btn btn-success">Add User</a><br><br>
         <div class="row">
-            <a href="{{ route('create.account') }}" class="btn btn-success">Create Account</a>
-        </div><br>
-        <div class="row">
-            <table class="table">
+            <table class="table table-hover"  style="text-align: center;">
                 <thead>
                     <tr>
-                        <th scope="col">ID</th>
+                        <th scope="col">Account ID</th>
                         <th scope="col">Last name</th>
                         <th scope="col">First name</th>
                         <th scope="col">Middle name</th>
                         <th scope="col">Handle Barangay</th>
-                        <th scope="col">Actions</th>
                     </tr>
                 </thead>
-                <tbody>
-                @foreach($users as $user)
-                    <tr>
-                        <th>{{ $user->user_id }}</th>
+                <tbody style="cursor: pointer">
+                @foreach($users as $user)       
+                    <tr style="height : 50px" onclick="window.location='{{ route('view.account', $user->user_id) }}';">       
+                        <td>{{ $user->user_id }}</td>
                         <td>{{ $user->last_name }}</td>
                         <td>{{ $user->first_name }}</td>
                         <td>{{ $user->middle_name }}</td>
-                        <td>Wala pa</td>   
-                        <td><a href="{{ route('view.account', $user->user_id) }}" class="btn btn-success">SHOW</a></td>   
+                        <td>Mag ququery pa hahahha</td>                                                       
                     </tr>
                 @endforeach
                 </tbody>

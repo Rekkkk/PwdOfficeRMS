@@ -4,7 +4,9 @@ namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Gate;
-use App\Model\Account;
+
+use App\Model\User;
+
 
 class AuthServiceProvider extends ServiceProvider
 {
@@ -15,6 +17,7 @@ class AuthServiceProvider extends ServiceProvider
      */
     protected $policies = [
         // 'App\Models\Model' => 'App\Policies\ModelPolicy',
+        User::class => AccountManagement::class,
     ];
 
     /**
@@ -26,11 +29,17 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
 
-        // Gate::define('account_management', function(Account $data){
-        //         if($data->is_super_admin == 1){
-        //             return true;
-        //         }
-        //         return false;
-        // });
+      //  Gate::define('update-post', [PostPolicy::class, 'update']);
+
+        Gate::define('account.management', fn($user) => $user->account->is_super_admin);
+
+        // Gate::define('account_management', function($user){
+        //             // if($data->is_super_admin == 1){
+        //             //     e true;
+        //             // }
+        //             // return false;
+        //             echo $user;
+        //     });
+
     }
 }

@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\Hash;
 use App\Models\Account;
 
 class UserAccountSeeder extends Seeder
@@ -17,13 +18,10 @@ class UserAccountSeeder extends Seeder
     {
         Account::create([
             'email' => 'jeric@yahoo.com',
-            'password' => '1',
+            'password' => bcrypt('1'),
             'is_super_admin' => '1',
             'user_id' => '1',
-            
-
-
-
+        
         ]);
     }
 }

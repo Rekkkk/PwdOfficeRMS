@@ -16,13 +16,14 @@ class AuthenticationCheck
      */
     public function handle(Request $request, Closure $next)
     {
-        // if(!Session()->has('loginId') == ($request->path() != 'dashboard')){
-        //     return redirect()->route('home');
-        
-        if(session()->has('loginId') && ($request->path() == 'home' || $request->path() == 'login')){
-           return  redirect('dashboard'); 
-           
+        if(!session()->has('loginId') && ($request->route()->getPrefix() == 'authenticate' )){
+            return redirect()->route('login');
         }
+    
+        if(session()->has('loginId') && ($request->route() == 'home' || $request->path() == 'login')){
+           return  redirect('authenticate/dashboard'); 
+        }
+
         $response = $next($request);
 
         return $response->header('Cache-Control','nocache, no-store, max-age=0, must-revalidate')

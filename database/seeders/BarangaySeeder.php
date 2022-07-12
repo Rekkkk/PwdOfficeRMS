@@ -26,7 +26,7 @@ class BarangaySeeder extends Seeder
         Barangay::create(['barangay_name' => 'Mamatid']);
         Barangay::create(['barangay_name' => 'Marinig']);
         Barangay::create(['barangay_name' => 'Niugan']);
-        Barangay::create(['barangay_name' => 'Pittland']);
+        Barangay::create(['barangay_name' => 'Pitland']);
         Barangay::create(['barangay_name' => 'Pulo']);
         Barangay::create(['barangay_name' => 'Sala']);
         Barangay::create(['barangay_name' => 'San Isidro']);

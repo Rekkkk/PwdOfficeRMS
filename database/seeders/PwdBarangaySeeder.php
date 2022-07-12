@@ -4,9 +4,9 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\AccountStatus;
+use App\Models\PwdBarangay;
 
-class AccountStatusSeeder extends Seeder
+class PwdBarangaySeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,10 +15,9 @@ class AccountStatusSeeder extends Seeder
      */
     public function run()
     {
-        AccountStatus::create([
-            'account_id' => 1,
-            'is_disable' => 0,
-            'is_suspend' => 0
+        PwdBarangay::create([
+            'pwd_id' => 1,
+            'barangay_id' => 1
         ]);
     }
 }

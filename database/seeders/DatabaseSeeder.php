@@ -26,9 +26,8 @@ class DatabaseSeeder extends Seeder
         $this->call(UserAccountSeeder::class);
         $this->call(AccountStatusSeeder::class);
         $this->call(BarangayHandleSeeder::class);
-     
-
-
-
+        $this->call(PwdSeeder::class);
+        $this->call(PwdBarangaySeeder::class);
+    
     }
 }

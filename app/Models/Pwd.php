@@ -5,17 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class BarangayHandle extends Model
+class Pwd extends Model
 {
     use HasFactory;
 
-    protected $table = 'handle_barangay';
+    protected $table = 'pwd';
 
     public $timestamps = false;
 
-    protected $fillable = [
-        'account_id',
-        'barangay_id'
-    ];
 
+    public function barangay(){
+        return $this->hasOne(Barangay::class);
+    }
 }
