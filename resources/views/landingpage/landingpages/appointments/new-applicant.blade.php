@@ -287,7 +287,7 @@
                         <div class="modal-body">
                             <div style="text-align: center">
                                 <h5 >Select Appointment Date</h5>
-                                <input type="text" id="txtDate" placeholder="Select Date"/>
+                                <input type="date" id="txtDate" placeholder="Select Date" name="appointment_date"/>
                             </div>
                         </div>
                         <!-- Modal footer -->
@@ -304,13 +304,13 @@
     <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
     <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
     <script type="text/javascript">
-        $(function () {
-            $("#txtDate").datepicker({
-                defaultDate: "+1w",
-                changeMonth: true,
-                numberOfMonths: 1,
-                beforeShowDay: $.datepicker.noWeekends
-            });
-        });
+        // $(function () {
+        //     $("#txtDate").datepicker({
+        //         defaultDate: "+1w",
+        //         changeMonth: true,
+        //         numberOfMonths: 1,
+        //         beforeShowDay: $.datepicker.noWeekends
+        //     });
+        // });
     </script>
 @endsection

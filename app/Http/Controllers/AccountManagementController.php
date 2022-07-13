@@ -14,9 +14,9 @@ class AccountManagementController extends Controller
 {
 
     public function accountManagementPage(){
-        $users ['users'] = User::all();
+        $data ['users'] = User::all();
 
-        return view('userpages/accountmanagement/account-management', $users);
+        return view('userpages/accountmanagement/account-management', $data);
         
     }
 

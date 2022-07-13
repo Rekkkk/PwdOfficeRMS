@@ -18,13 +18,15 @@
                 </tr>
             </thead>
             <tbody id="myTable" style="cursor: pointer">
+            @foreach($appointment as $appointments)
                 <tr>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
-                    <td>Example</td>
+                    <td>{{$appointments->appointment_id}}</td>
+                    <td>{{$appointments->transaction}}</td>
+                    <td>{{$appointments->applicant->last_name}}</td>
+                    <td>{{$appointments->applicant->first_name}}</td>
+                    <td>{{$appointments->applicant->middle_name}}</td>
                 </tr>
+            @endforeach
             </tbody>
         </table>
 @endsection

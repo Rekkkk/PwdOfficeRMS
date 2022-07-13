@@ -61,11 +61,10 @@ Route::group(['prefix' => 'authenticate',  'middleware' => 'AuthCheck'], functio
 
     Route::get('/dashboard', [AuthController::class, 'redirectUser'])->name('dashboard');
 
-    // Route::controller(AppointmentController::class)->group(function () {
-    //     Route::post('/new-application', 'newApplicantCreate')->name('new-applicant.create');
-    //     Route::get('/appointment', 'appointmentPage')->name('appointment.page');
+    Route::controller(AppointmentController::class)->group(function () {
+        Route::get('/appointment', 'appointmentPage')->name('appointment.page');
     
-    // });
+    });
 
     Route::group(['middleware' => 'IsSuperAdmin'], function () {
         Route::controller(AccountManagementController::class)->group(function () {

@@ -14,6 +14,7 @@ class NewApplicant extends Model
     public $timestamps = false;
 
     protected $fillable = [
+        'appointment_id',
         'last_name',
         'first_name' ,
         'middle_name' ,
@@ -49,5 +50,11 @@ class NewApplicant extends Model
         'mother_name',
         'guardian_name'
     ];
+
+
+    public function appointmentss()
+    {
+        return $this->belongsTo(Appointment::class);
+    }
     
 }
