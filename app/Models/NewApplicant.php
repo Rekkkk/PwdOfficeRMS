@@ -5,11 +5,11 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pwd extends Model
+class NewApplicant extends Model
 {
     use HasFactory;
 
-    protected $table = 'pwd';
+    protected $table = 'appointment_new_applicant';
 
     public $timestamps = false;
 
@@ -50,7 +50,4 @@ class Pwd extends Model
         'guardian_name'
     ];
     
-    public function barangay(){
-        return $this->hasOne(Barangay::class);
-    }
 }

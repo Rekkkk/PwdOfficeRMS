@@ -29,6 +29,7 @@ return new class extends Migration
             $table->string('disability_type');
             $table->string('disability_cause');
             $table->string('address');
+            $table->string('barangay');
             $table->string('telephone_number')->nullable();
             $table->string('phone_number');
             $table->string('email')->nullable();

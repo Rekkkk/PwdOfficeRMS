@@ -31,6 +31,7 @@ class PwdSeeder extends Seeder
             'disability_type' => 'Visual Disability',
             'disability_cause' => 'Injury',
             'address' => 'Cabuyao City',
+            'barangay' => 'Banay-Banay',
             'phone_number' => '0912345678',
             'telephone_number' => '',
             'email' => '',

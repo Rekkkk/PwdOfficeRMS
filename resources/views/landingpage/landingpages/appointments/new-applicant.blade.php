@@ -7,22 +7,23 @@
         }
     </style>
     <div class="container-fuild">
-        <form action="">
+        <form action="{{ route('new-applicant.create') }}" method="POST">
+            @csrf
             <h1>New Applicant Form</h1><br><br>
 
             <h4>Personal Information</h4>
             <div class="row">
                 <div class="col">
                     <label>Last Name :</label>
-                    <input type="text" name="last_name" class="form-control" placeholder="Enter last name">
+                    <input type="text" name="last_name" class="form-control" placeholder="Enter last name" required>
                 </div>
                 <div class="col">
                     <label>First name :</label>
-                    <input type="text" name="first_name" class="form-control" id="email" placeholder="Enter first name">
+                    <input type="text" name="first_name" class="form-control" id="email" placeholder="Enter first name" required>
                 </div>
                 <div class="col">
                     <label>Middle Name :</label>
-                    <input type="text" name="middle_name" class="form-control" placeholder="Enter middle name">
+                    <input type="text" name="middle_name" class="form-control" placeholder="Enter middle name" required>
                 </div>
                 <div class="col">
                     <label>Suffix (Optional) :</label>
@@ -72,14 +73,14 @@
                     <label>Blood Type:</label>
                     <select name="blood_type" class="custom-select mb-3">
                         <option selected>Please select Blood type</option>
-                        <option value="Single">A+</option>
-                        <option value="Married">A-</option>
-                        <option value="Widowed">B+</option>
-                        <option value="Widowed">B-</option>
-                        <option value="Widowed">AB+</option>
-                        <option value="Widowed">AB-</option>
-                        <option value="Widowed">O+</option>
-                        <option value="Widowed">O-</option>
+                        <option value="A+">A+</option>
+                        <option value="A-">A-</option>
+                        <option value="B+">B+</option>
+                        <option value="B">B-</option>
+                        <option value="AB+">AB+</option>
+                        <option value="AB-">AB-</option>
+                        <option value="O+">O+</option>
+                        <option value="O-">O-</option>
                     </select>
                 </div>
             </div>
@@ -102,12 +103,12 @@
                     <label>Cause of Disablity:</label>
                     <select name="disability_cause" class="custom-select mb-3">
                         <option selected>Please select a civil status</option>
-                        <option value="Single">Acquired</option>
-                        <option value="Married">Cancer</option>
-                        <option value="Widowed">Chronic illness</option>
-                        <option value="Single">Congenital/Inborn</option>
-                        <option value="Married">Injury</option>
-                        <option value="Widowed">Rare Disease</option>
+                        <option value="Acquired">Acquired</option>
+                        <option value="Cancer">Cancer</option>
+                        <option value="Chronic Illness">Chronic Illness</option>
+                        <option value="Congenital/Inborn">Congenital/Inborn</option>
+                        <option value="Injury">Injury</option>
+                        <option value="Rare Disease">Rare Disease</option>
                     </select>
                 </div>
 
@@ -121,25 +122,24 @@
                     <label>Barangay</label>
                     <select  name="barangay" class="custom-select mb-3">
                         <option selected>Select Barangay</option>
-                        <option value="Single">Baclaran</option>
-                        <option value="Married">Banay-Banay</option>
-                        <option value="Widowed">Banlic</option>
-                        <option value="Single">Bigaa</option>
-                        <option value="Married">Butong</option>
-                        <option value="Widowed">Casile</option>
-                        <option value="Single">Diezmo</option>
-                        <option value="Married">Gulod</option>
-                        <option value="Widowed">Mamatid</option>
-                        <option value="Single">Marinig</option>
-                        <option value="Married">Niugan</option>
-                        <option value="Widowed">Pittland</option>
-                        <option value="Single">Pulo</option>
-                        <option value="Married">Sala</option>
-                        <option value="Widowed">San Isidro</option>
-                        <option value="Single">Barangay I Poblacion</option>
-                        <option value="Married">Barangay II Poblacion</option>
-                        <option value="Widowed">Barangay III Poblacion</option>
-                      
+                        <option value="Baclaran">Baclaran</option>
+                        <option value="Banay-Banay">Banay-Banay</option>
+                        <option value="Banlic">Banlic</option>
+                        <option value="Bigaa">Bigaa</option>
+                        <option value="Butong">Butong</option>
+                        <option value="Casile">Casile</option>
+                        <option value="Diezmo">Diezmo</option>
+                        <option value="Gulod">Gulod</option>
+                        <option value="Mamatid">Mamatid</option>
+                        <option value="Marinig">Marinig</option>
+                        <option value="Niugan">Niugan</option>
+                        <option value="Pittland">Pittland</option>
+                        <option value="Pulo">Pulo</option>
+                        <option value="Sala">Sala</option>
+                        <option value="San Isidro">San Isidro</option>
+                        <option value="Barangay I Poblacion">Barangay I Poblacion</option>
+                        <option value="Barangay II Poblacion">Barangay II Poblacion</option>
+                        <option value="Barangay III Poblacion">Barangay III Poblacion</option>
                     </select>
                 </div>
                 <div class="col-sm-2">
@@ -153,13 +153,14 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label>Telephone No. :</label>
-                    <input type="text" class="form-control" name="telephone_number">
-                </div>
-                <div class="col">
                     <label>Phone No. :</label>
                     <input type="text" class="form-control" name="phone_number">
                 </div>
+                <div class="col">
+                    <label>Telephone No. :</label>
+                    <input type="text" class="form-control" name="telephone_number">
+                </div>
+               
                 <div class="col">
                     <label>Email Address :</label>
                     <input type="text" class="form-control" name="email">
@@ -214,7 +215,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <label>Occupation (Required) :</label>
+                    <label>Occupation :</label>
                     <input type="text" class="form-control" name="occupation">
                 </div>
             </div><br>
@@ -284,14 +285,15 @@
                     </div>
                         <!-- Modal body -->
                         <div class="modal-body">
-                        <h5 style="text-align: center">Select Appointment Date</h5>
-                        
-                        <input type="text" id="txtDate" />
+                            <div style="text-align: center">
+                                <h5 >Select Appointment Date</h5>
+                                <input type="text" id="txtDate" placeholder="Select Date"/>
+                            </div>
                         </div>
-                
                         <!-- Modal footer -->
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+                            <button type="submit" class="btn btn-success">Confirm</button>
+                            <input type="button" value="Cancel" class="btn btn-danger" data-dismiss="modal">
                         </div>
                     </div>
                 </div>
